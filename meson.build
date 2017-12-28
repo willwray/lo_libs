@@ -4,17 +4,9 @@ project('liftoff', 'cpp',
 
 subprojects = ['lo_test', 'lo_adder', 'lo_strings']
 
-chosen_subproject = get_option('module')
-
-foreach s : subprojects
-  if chosen_subproject == 'all' or chosen_subproject == s
-    subproject(s)
-  endif
-endforeach
-
-string_dep = dependency('lo_strings', fallback : ['lo_strings', 'lo_strings_dep'])
-adder_dep = dependency('lo_adder', fallback : ['lo_adder', 'lo_adder_dep'])
-test_dep = dependency('lo_test', fallback : ['lo_test', 'lo_test_dep'])
+string_dep = subproject('lo_strings').get_variable('lo_strings_dep')
+adder_dep = subproject('lo_adder').get_variable('lo_adder_dep')
+test_dep = subproject('lo_test').get_variable('lo_test_dep')
 
 shuttlelib = static_library('lo_shuttle', 'lo_shuttle.cpp',
   dependencies : [string_dep, adder_dep])
