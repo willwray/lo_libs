@@ -1,5 +1,6 @@
 project('liftoff', 'cpp',
-  default_options : 'cpp_std=c++11')
+  default_options : 'cpp_std=c++11',
+  subproject_dir : 'lo_libs')
 
 subprojects = ['lo_test', 'lo_adder', 'lo_strings']
 
