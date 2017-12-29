@@ -1,4 +1,4 @@
-# The liftoff sample project
+# The lo_libs libraries for the liftoff sample project
 
 This repository contains a software project that has many independent
 modules with interdependencies. The point is to demonstrate how you can
@@ -9,8 +9,7 @@ The project consists of the following subprojects:
  - `lo_test`, a simple unit testing framework
  - `lo_adder`, a helper module for adding integers, depends on `lt_test`
  - `lo_strings`, a helper module for manipulating strings, has no dependencies
- - `lo_shuttle`, an application to launch shuttles, depends on all other modules
-
+ 
 # Compiling and running
 
 On the command line:
